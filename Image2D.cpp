@@ -1,4 +1,3 @@
-#include <vector>
 #include "Image2D.hpp"
 
 // Public Member Functions
@@ -25,17 +24,17 @@ int Image2D::w() const
     return m_width;
 };
 
-int Image2D::h() const
+Value Image2D::h() const
 {
     return m_height;
 };
 
-TValue Image2D::at(int i, int j) const
+Value Image2D::at(int i, int j) const
 {
     return m_data[i + j * m_width];
 };
 
-TValue &Image2D::at(int i, int j)
+Value &Image2D::at(int i, int j)
 {
     return m_data[i + j * m_width];
 };
