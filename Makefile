@@ -5,7 +5,6 @@ EXEC_SRC=\
 	testGrayLevelImage2D.cpp
 
 MODULE_SRC=\
-	Image2D.cpp
 
 MODULE_OBJ=${MODULE_SRC:.cpp=.o}
 EXEC_OBJ=${EXEC_SRC:.cpp=.o}
