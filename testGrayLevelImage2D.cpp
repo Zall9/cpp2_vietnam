@@ -1,9 +1,9 @@
 #include <iostream>
 #include <fstream>
-#include "Color.hpp"
+#include "Image2D.hpp"
 
 using namespace std;
-
+// ça a make la
 int main(int argc, char **argv)
 {
   typedef unsigned char GrayLevel;
