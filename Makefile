@@ -2,7 +2,8 @@ LD=g++
 CXX=g++ -g -c
 
 EXEC_SRC=\
-	testGrayLevelImage2D.cpp
+	testGrayLevelImage2D.cpp\
+	testImage2D.cpp\
 
 MODULE_SRC=\
 
