@@ -19,7 +19,7 @@ int main(int argc, char **argv)
     }
     ColorImage2D img;
     std::ifstream input(argv[1]); // récupère le 1er argument.
-    bool ok = ColorImage2DReader::reader(img, input);
+    bool ok = ColorImage2DReader::reader(input, img, false);
     if (!ok)
     {
         std::cerr << "Error reading input file." << std::endl;
@@ -49,7 +49,7 @@ int main(int argc, char **argv)
     //-----------------------------------------------------------------------------
 
     std::ofstream output(argv[2]); // récupère le 2eme argument.
-    bool ok2 = GrayLevelImage2DWriter::writer(img2, output, false);
+    bool ok2 = GrayLevelImage2DWriter::write(img2, output, false);
     if (!ok2)
     {
         std::cerr << "Error writing output file." << std::endl;

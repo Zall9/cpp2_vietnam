@@ -5,24 +5,6 @@ g++  testColorImage2D.o -o testColorImage2D
 g++ -g -c -std=c++11 invert-red-blue.cpp
 g++  invert-red-blue.o -o invert-red-blue
 g++ -g -c -std=c++11 save-green-channel.cpp
-save-green-channel.cpp:22:52: error: too few arguments to function call, expected 3, have 2
-    bool ok = ColorImage2DReader::reader(img, input);
-              ~~~~~~~~~~~~~~~~~~~~~~~~~~           ^
-./Image2Dreader.hpp:103:17: note: 'reader' declared here
-    static bool reader(std::istream &input, Image &img, bool ascii)
-                ^
-save-green-channel.cpp:40:43: error: 'begin' does not name a template but is followed by template arguments
-    ColorGreenConstIterator itGreen = img.begin<ColorGreenAccessor>();
-                                          ^    ~~~~~~~~~~~~~~~~~~~~
-./Image2D.hpp:67:12: note: non-template declaration found by name lookup
-  Iterator begin() { return start(0, 0); }
-           ^
-save-green-channel.cpp:52:40: error: no member named 'writer' in 'Image2DWriter<unsigned char>'; did you mean 'write'?
-    bool ok2 = GrayLevelImage2DWriter::writer(img2, output, false);
-               ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
-                                       write
-./Image2Dwriter.hpp:35:17: note: 'write' declared here
-    static bool write(Image &img, std::ostream &output, bool ascii)
-                ^
-3 errors generated.
-make: *** [save-green-channel.o] Error 1
+g++  save-green-channel.o -o save-green-channel
+g++ -g -c -std=c++11 save-channels.cpp
+g++  save-channels.o -o save-channels
