@@ -1,0 +1,4 @@
+g++ -g -c testGrayLevelImage2D.cpp
+g++  testGrayLevelImage2D.o -o testGrayLevelImage2D
+g++ -g -c testColorImage2D.cpp
+g++  testColorImage2D.o -o testColorImage2D
