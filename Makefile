@@ -4,6 +4,7 @@ CXX=g++ -g -c
 EXEC_SRC=\
 	testGrayLevelImage2D.cpp\
 	testColorImage2D.cpp\
+	
 
 MODULE_SRC=\
 

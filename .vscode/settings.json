@@ -68,6 +68,7 @@
         "algorithm": "cpp",
         "iterator": "cpp",
         "filesystem": "cpp",
-        "version": "cpp"
+        "version": "cpp",
+        "log": "cpp"
     }
 }

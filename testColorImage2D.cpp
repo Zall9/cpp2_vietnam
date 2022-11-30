@@ -1,7 +1,11 @@
 #include <iostream>
+#include <ostream>
+#include <istream>
 #include <fstream>
 #include "Color.hpp"
 #include "Image2D.hpp"
+#include "Image2Dwriter.hpp"
+#include "Image2Dreader.hpp"
 using namespace std;
 
 int testProfQ4()
@@ -69,9 +73,61 @@ void oldMain()
     }
 }
 
+int testProfWriterQ5()
+{
+    typedef Image2D<Color> ColorImage2D;
+    typedef ColorImage2D::Iterator Iterator;
+
+    ColorImage2D img(256, 256, Color(0, 0, 0));
+    Iterator it = img.begin();
+    for (int y = 0; y < 256; ++y)
+        for (int x = 0; x < 256; ++x)
+        {
+            *it++ = Color(y, x, (2 * x + 2 * y) % 256);
+        }
+    ofstream output("colorsQ5Output.ppm");
+    bool ok2 = Image2DWriter<Color>::write(img, output, false);
+    if (!ok2)
+    {
+        std::cerr << "Error writing output file." << std::endl;
+        return 1;
+    }
+    output.close();
+    return 0;
+}
+
+int testProfReaderQ5()
+{
+    typedef Image2D<Color> ColorImage2D;
+    typedef ColorImage2D::Iterator Iterator;
+
+    ColorImage2D img(256, 256, Color(255, 255, 0));
+    Iterator it = img.begin();
+    for (int y = 0; y < 256; ++y)
+        for (int x = 0; x < 256; ++x)
+        {
+            *it++ = Color(y, x, (5 * x + 2 * y) % 256);
+        }
+
+    // ifstream input("colorsQ5Output.ppm");
+    // bool ok2 = Image2DReader<Color>::reader(input, img, false);
+    // if (!ok2)
+    // {
+    //     std::cerr << "Error writing reader file." << std::endl;
+    //     return 1;
+    // }
+
+
+    ofstream output("colorsQ5WRITERBIS.ppm");
+    bool ok3 = Image2DWriter<Color>::write(img, output, false);
+    output.close();
+    return 0;
+}
+
 int main(int argc, char **argv)
 {
-    return constTestProfQ4();
+    // return testProfWriterQ5();
+    return testProfReaderQ5();
 }
 
 // copilot peut-tu ecrire un poeme pour mon ami yuss le plus bel homme de la terre
