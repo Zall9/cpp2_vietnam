@@ -79,12 +79,39 @@ public:
     }
   };
 
-  //create cbegin
+  // create cbegin
   ConstIterator cbegin() const { return cstart(0, 0); }
-  //create cend
+  // create cend
   ConstIterator cend() const { return cstart(0, h()); }
-  //create cstart
+  // create cstart
   ConstIterator cstart(int x, int y) const { return ConstIterator(*this, x, y); }
+
+  template <typename TAccessor>
+  struct GenericConstIterator : public Container::const_iterator
+  {
+    typedef TAccessor Accessor;
+    typedef typename Accessor::Argument ImageValue; // Color ou unsigned char
+    typedef typename Accessor::Value Value;         // unsigned char (pour ColorGreenAccessor)
+    typedef typename Accessor::Reference Reference; // ColorGreenReference (pour ColorGreenAccessor)
+    template <typename Accessor>
+
+    GenericConstIterator(const Image2D<ImageValue> &image, int x, int y){
+      Accessor accessor;
+      Container::const_iterator(image.m_data.begin() + image.index(x, y));
+    };
+
+    GenericConstIterator<Accessor> start(int x = 0, int y = 0) const
+    {
+      return GenericConstIterator<Accessor>(*this, x, y);
+    }
+    GenericConstIterator<Accessor> begin() const { return start(0, 0); }
+    GenericConstIterator<Accessor> end() const { return start(0, h()); }
+    // Accès en lecture (rvalue)
+    Value operator*() const
+    {
+      return Accessor::access(Container::const_iterator::operator*());
+    } //< Appel de op* de l'térateur de vector
+  };
 
 private:
   Container m_data; // mes données; évitera de faire les allocations dynamiques

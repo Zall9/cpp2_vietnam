@@ -7,7 +7,7 @@
 #include <string>
 #include "Color.hpp"
 #include "Image2D.hpp"
-
+using namespace std;
 template <typename TValue>
 class Image2DReader
 {
