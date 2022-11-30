@@ -1,4 +1,14 @@
-g++ -g -c testGrayLevelImage2D.cpp
+g++ -g -c -Wall -std=c++11 testGrayLevelImage2D.cpp
 g++  testGrayLevelImage2D.o -o testGrayLevelImage2D
-g++ -g -c testColorImage2D.cpp
+g++ -g -c -Wall -std=c++11 testColorImage2D.cpp
+testColorImage2D.cpp:128:10: warning: unused variable 'ok3' [-Wunused-variable]
+    bool ok3 = Image2DWriter<Color>::write(img, output, false);
+         ^
+1 warning generated.
 g++  testColorImage2D.o -o testColorImage2D
+g++ -g -c -Wall -std=c++11 invert-red-blue.cpp
+invert-red-blue.cpp:37:10: warning: unused variable 'ok3' [-Wunused-variable]
+    bool ok3 = Image2DWriter<Color>::write(img, output, false);
+         ^
+1 warning generated.
+g++  invert-red-blue.o -o invert-red-blue

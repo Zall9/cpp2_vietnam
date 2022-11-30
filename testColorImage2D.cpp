@@ -8,6 +8,7 @@
 #include "Image2Dreader.hpp"
 using namespace std;
 
+//works
 int testProfQ4()
 {
     typedef Image2D<Color> ColorImage2D;
@@ -33,6 +34,7 @@ int testProfQ4()
     return 0;
 }
 
+//works
 int constTestProfQ4()
 {
     typedef Image2D<Color> ColorImage2D;
@@ -61,6 +63,8 @@ int constTestProfQ4()
     output.close();
     return 0;
 }
+
+//works
 void oldMain()
 {
     typedef Image2D<Color> ColorImage2D;
@@ -73,6 +77,7 @@ void oldMain()
     }
 }
 
+//works
 int testProfWriterQ5()
 {
     typedef Image2D<Color> ColorImage2D;
@@ -96,6 +101,7 @@ int testProfWriterQ5()
     return 0;
 }
 
+//works
 int testProfReaderQ5()
 {
     typedef Image2D<Color> ColorImage2D;
@@ -109,13 +115,13 @@ int testProfReaderQ5()
             *it++ = Color(y, x, (5 * x + 2 * y) % 256);
         }
 
-    // ifstream input("colorsQ5Output.ppm");
-    // bool ok2 = Image2DReader<Color>::reader(input, img, false);
-    // if (!ok2)
-    // {
-    //     std::cerr << "Error writing reader file." << std::endl;
-    //     return 1;
-    // }
+    ifstream input("colorsQ5Output.ppm");
+    bool ok2 = Image2DReader<Color>::reader(input, img, false);
+    if (!ok2)
+    {
+        std::cerr << "Error writing reader file." << std::endl;
+        return 1;
+    }
 
 
     ofstream output("colorsQ5WRITERBIS.ppm");
@@ -126,8 +132,7 @@ int testProfReaderQ5()
 
 int main(int argc, char **argv)
 {
-    // return testProfWriterQ5();
-    return testProfReaderQ5();
+    return 0;
 }
 
 // copilot peut-tu ecrire un poeme pour mon ami yuss le plus bel homme de la terre
