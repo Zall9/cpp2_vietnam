@@ -13,7 +13,8 @@ public:
   typedef std::vector<Value> Container; // le type pour stocker les valeurs des pixels de l'image.
 
   // Constructeur par défaut
-  Image2D(){
+  Image2D()
+  {
     m_width = 0;
     m_height = 0;
   };
@@ -106,16 +107,50 @@ public:
     }
   };
   template <typename Accessor>
-  GenericConstIterator<Accessor> start(int x = 0, int y = 0) const
+  GenericConstIterator<Accessor> cstart(int x = 0, int y = 0) const
   {
     return GenericConstIterator<Accessor>(*this, x, y);
   }
   template <typename Accessor>
-  GenericConstIterator<Accessor> begin() const { return start<Accessor>(0, 0); }
+  GenericConstIterator<Accessor> cbegin() const { return cstart<Accessor>(0, 0); }
   template <typename Accessor>
-  GenericConstIterator<Accessor> end() const { return start<Accessor>(0, h()); }
+  GenericConstIterator<Accessor> cend() const { return cstart<Accessor>(0, h()); }
   // Accès en lecture (rvalue)
   //< Appel de op* de l'térateur de vector
+
+  template <typename TAccessor>
+  struct GenericIterator : public Container::iterator
+  {
+    typedef TAccessor Accessor;
+    typedef typename Accessor::Argument ImageValue; // Color ou unsigned char
+    typedef typename Accessor::Value Value;         // unsigned char (pour ColorGreenAccessor)
+    typedef typename Accessor::Reference Reference; // ColorGreenReference (pour ColorGreenAccessor)
+
+    GenericIterator(Image2D<ImageValue> &image, int x, int y)
+        : Container::iterator(image.m_data.begin() + image.index(x, y)){};
+
+    // Accès en écriture (lvalue)
+    Reference operator*()
+    {
+      return Accessor::access(Container::iterator::operator*());
+    }
+  };
+
+  template <typename Accessor>
+  GenericIterator<Accessor> start(int x = 0, int y = 0)
+  {
+    return GenericIterator<Accessor>(*this, x, y);
+  }
+  template <typename Accessor>
+  GenericIterator<Accessor> begin()
+  {
+    return start<Accessor>();
+  }
+  template <typename Accessor>
+  GenericIterator<Accessor> end()
+  {
+    return start<Accessor>(0, h());
+  }
 
 private:
   Container m_data; // mes données; évitera de faire les allocations dynamiques

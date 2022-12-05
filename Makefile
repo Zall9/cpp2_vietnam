@@ -7,6 +7,7 @@ EXEC_SRC=\
 	invert-red-blue.cpp\
 	save-green-channel.cpp\
 	save-channels.cpp\
+	save-barre.cpp
 
 MODULE_SRC=\
 
@@ -30,6 +31,9 @@ save-green-channel: save-green-channel.o ${MODULE_OBJ}
 	${LD} ${MODULE_OBJ} $< -o $@
 
 save-channels: save-channels.o ${MODULE_OBJ}
+	${LD} ${MODULE_OBJ} $< -o $@
+
+save-barre: save-barre.o ${MODULE_OBJ}
 	${LD} ${MODULE_OBJ} $< -o $@
 
 .cpp.o: %.cpp %.hpp

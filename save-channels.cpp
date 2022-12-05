@@ -35,7 +35,7 @@ int main(int argc, char **argv)
     GrayLevelImage2D img2(img.w(), img.h());
 
     typedef ColorImage2D::GenericConstIterator<ColorGreenAccessor> ColorGreenConstIterator;
-    ColorGreenConstIterator itGreen = img.begin<ColorGreenAccessor>();
+    ColorGreenConstIterator itGreen = img.cbegin<ColorGreenAccessor>();
 
     for (GrayLevelIterator it = img2.begin(), itE = img2.end();
          it != itE; ++it)
@@ -57,7 +57,7 @@ int main(int argc, char **argv)
     GrayLevelImage2D img3(img.w(), img.h());
 
     typedef ColorImage2D::GenericConstIterator<ColorBlueAccessor> ColorBlueConstIterator;
-    ColorBlueConstIterator itBlue = img.begin<ColorBlueAccessor>();
+    ColorBlueConstIterator itBlue = img.cbegin<ColorBlueAccessor>();
 
     for (GrayLevelIterator it = img3.begin(), itE = img3.end();
          it != itE; ++it)
@@ -79,7 +79,7 @@ int main(int argc, char **argv)
     GrayLevelImage2D img4(img.w(), img.h());
 
     typedef ColorImage2D::GenericConstIterator<ColorRedAccessor> ColorRedConstIterator;
-    ColorRedConstIterator itRed = img.begin<ColorRedAccessor>();
+    ColorRedConstIterator itRed = img.cbegin<ColorRedAccessor>();
 
     for (GrayLevelIterator it = img4.begin(), itE = img4.end();
          it != itE; ++it)
