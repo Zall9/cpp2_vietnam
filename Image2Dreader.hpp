@@ -119,7 +119,9 @@ public:
         std::cout << readline(input) << std::endl;
 
         // new image
-        img = Image(m_width, m_height, Color(0, 0, 0));
+        //img = Image(m_width, m_height, Color(0, 0, 0));
+        img = Image(m_width, m_height, Color());
+
         // img.fill(0);
         if (format == "P6")
         {
@@ -132,7 +134,7 @@ public:
             }
         }
         else
-        {
+        {   
             input >> std::skipws;
             int r, g, b;
             for (Image::Iterator it = img.begin(), itE = img.end(); it != itE; ++it)
