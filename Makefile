@@ -7,7 +7,8 @@ EXEC_SRC=\
 	invert-red-blue.cpp\
 	save-green-channel.cpp\
 	save-channels.cpp\
-	save-barre.cpp
+	save-barre.cpp\
+	histogram.cpp
 
 MODULE_SRC=\
 
