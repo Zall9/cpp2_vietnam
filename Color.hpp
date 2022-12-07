@@ -91,24 +91,31 @@ struct Color
         switch (ti)
         {
         case 0:
-            (red, green, blue) = (v, n, l);
+            MultiplyValueOfColor(v, n, l);
             break;
         case 1:
-            (red, green, blue) = (m, v, l);
+            MultiplyValueOfColor(m, v, l);
             break;
         case 2:
-            (red, green, blue) = (l, v, n);
+            MultiplyValueOfColor(l, v, n);
             break;
         case 3:
-            (red, green, blue) = (l, m, v);
+            MultiplyValueOfColor(l, m, v);
             break;
         case 4:
-            (red, green, blue) = (n, l, v);
+            MultiplyValueOfColor(n, l, v);
             break;
         case 5:
-            (red, green, blue) = (v, l, m);
+            MultiplyValueOfColor(v, l, m);
             break;
         }
+    }
+
+    void MultiplyValueOfColor(float r, float g, float b)
+    {
+        red = r * 255;
+        green = g * 255;
+        blue = b * 255;
     }
 };
 

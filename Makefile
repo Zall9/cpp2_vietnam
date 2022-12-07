@@ -8,7 +8,8 @@ EXEC_SRC=\
 	save-green-channel.cpp\
 	save-channels.cpp\
 	save-barre.cpp\
-	histogram.cpp
+	histogram.cpp\
+	egalise.cpp
 
 MODULE_SRC=\
 
@@ -38,6 +39,9 @@ save-barre: save-barre.o ${MODULE_OBJ}
 	${LD} ${MODULE_OBJ} $< -o $@
 
 histogram: histogram.o ${MODULE_OBJ}
+	${LD} ${MODULE_OBJ} $< -o $@
+
+egalise: egalise.o ${MODULE_OBJ}
 	${LD} ${MODULE_OBJ} $< -o $@
 
 .cpp.o: %.cpp %.hpp

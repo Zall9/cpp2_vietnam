@@ -185,7 +185,10 @@ public:
       *it += *(it - 1);
     }
   }
-  int egalisation(int j) const { return 0; }
+  int egalisation(int j) const
+  {
+    return (int)(255 * _cumhisto[j]);
+  }
   std::vector<double> _histo;
   std::vector<double> _cumhisto;
 };
