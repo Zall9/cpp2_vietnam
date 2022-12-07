@@ -1,1 +1,1 @@
-on est a la question 8
+on est a la question 12, nous effectuons la rotation de couleur de 60 deg

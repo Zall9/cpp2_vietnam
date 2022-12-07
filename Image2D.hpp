@@ -189,6 +189,8 @@ public:
   {
     return (int)(255 * _cumhisto[j]);
   }
+
+
   std::vector<double> _histo;
   std::vector<double> _cumhisto;
 };

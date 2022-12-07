@@ -9,7 +9,8 @@ EXEC_SRC=\
 	save-channels.cpp\
 	save-barre.cpp\
 	histogram.cpp\
-	egalise.cpp
+	egalise.cpp\
+	rotationColor.cpp
 
 MODULE_SRC=\
 
@@ -42,6 +43,9 @@ histogram: histogram.o ${MODULE_OBJ}
 	${LD} ${MODULE_OBJ} $< -o $@
 
 egalise: egalise.o ${MODULE_OBJ}
+	${LD} ${MODULE_OBJ} $< -o $@
+
+rotationColor: rotationColor.o ${MODULE_OBJ}
 	${LD} ${MODULE_OBJ} $< -o $@
 
 .cpp.o: %.cpp %.hpp

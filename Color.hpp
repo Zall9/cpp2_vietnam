@@ -25,6 +25,12 @@ struct Color
     /// @return l'intensité de bleu (entre 0.0 et 1.0)
     float b() const { return ((float)blue) / 255.0; }
 
+
+    //setter
+    void r(float _r) { red = (Byte)(_r * 255.0); }
+    void g(float _g) { green = (Byte)(_g * 255.0); }
+    void b(float _b) { blue = (Byte)(_b * 255.0); }
+
     /// Sert à désigner un canal.
     enum Channel
     {
@@ -76,10 +82,6 @@ struct Color
         v = max();
     }
 
-    /**
-     * @brief   Convertit la couleur RGB en le modèle HSV (TSV en français).
-     *
-     */
 
     void setHSV(int h, float s, float v)
     {
@@ -117,6 +119,7 @@ struct Color
         green = g * 255;
         blue = b * 255;
     }
+
 };
 
 #endif //_COLOR_HPP_
