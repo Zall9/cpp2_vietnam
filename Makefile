@@ -37,6 +37,9 @@ save-channels: save-channels.o ${MODULE_OBJ}
 save-barre: save-barre.o ${MODULE_OBJ}
 	${LD} ${MODULE_OBJ} $< -o $@
 
+histogram: histogram.o ${MODULE_OBJ}
+	${LD} ${MODULE_OBJ} $< -o $@
+
 .cpp.o: %.cpp %.hpp
 	${CXX} $<
 
